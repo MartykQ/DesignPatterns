@@ -28,5 +28,10 @@ namespace Zadanie2
             this._developerPosition.changeDeveloperPosition(this);
         }
 
+        public decimal calculateSalary()
+        {
+            return this._developerPosition.calculateSalary(this);
+        }
+
     }
 }

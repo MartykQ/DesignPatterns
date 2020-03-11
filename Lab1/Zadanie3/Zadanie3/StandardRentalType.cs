@@ -11,10 +11,5 @@ namespace Zadanie3
         {
             return (rental.RentalTime * rental.UnitPrice)*(1-Convert.ToDecimal(percentalDiscount));
         }
-
-        public override void ChangeRentalType(Rental rental)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

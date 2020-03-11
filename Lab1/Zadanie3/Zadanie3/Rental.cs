@@ -10,15 +10,20 @@ namespace Zadanie3
         private RentalType _rentalType;
         private int _rentalTime;
         private decimal _unitPrice;
+
+
         public string Owner { get => _owner; set => _owner = value; }
         public RentalType RentalType { get => _rentalType; set => _rentalType = value; }
         public int RentalTime { get => _rentalTime; set => _rentalTime = value; }
         public decimal UnitPrice { get => _unitPrice; set => _unitPrice = value; }
 
-        public Rental(string owner, int duration)
+        public Rental(string owner, int duration, decimal unitPrice)
         {
             this._owner = owner;
             this._rentalTime = duration;
+            this._unitPrice = unitPrice;
+
+            this._rentalType = new GrowingRentalType();
         }
 
         public decimal CalculatePrice()
@@ -28,7 +33,8 @@ namespace Zadanie3
 
         public void ChangeRentalType()
         {
-            this._rentalType.ChangeRentalType(this);
+
+            this._rentalType = new GrowingRentalType();
         }
 
 

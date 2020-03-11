@@ -7,6 +7,10 @@ namespace Zadanie3
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Rental r1 = new Rental("Maciek", 3, 10);
+
+            Console.WriteLine($"Price: {r1.CalculatePrice()}");
         }
     }
 }

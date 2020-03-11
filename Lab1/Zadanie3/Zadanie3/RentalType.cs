@@ -7,7 +7,5 @@ namespace Zadanie3
     public abstract class RentalType
     {
         public abstract decimal CalculatePrice(Rental rental);
-        public abstract void ChangeRentalType(Rental rental);
-
     }
 }

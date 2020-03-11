@@ -11,9 +11,5 @@ namespace Zadanie3
             return rental.RentalTime * rental.UnitPrice;
         }
 
-        public override void ChangeRentalType(Rental rental)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
