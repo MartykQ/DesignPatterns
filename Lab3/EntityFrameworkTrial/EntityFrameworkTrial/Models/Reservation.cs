@@ -11,7 +11,7 @@ namespace EntityFrameworkTrial
         private DateTime _reservationDateTime;
         private int _status;
         private Car _car;
-
+        
         public Reservation()
         {
 
@@ -20,7 +20,9 @@ namespace EntityFrameworkTrial
         public int ReservationId { get => _reservationId; set => _reservationId = value; }
         public DateTime ReservationDateTime { get => _reservationDateTime; set => _reservationDateTime = value; }
         public int Status { get => _status; set => _status = value; }
-        internal Car Car { get => _car; set => _car = value; }
+        public Car Car { get => _car; set => _car = value; }
+
+        public int MinutesSinceCreated { get => (int)this.ReservationDateTime.Subtract(DateTime.Now).TotalMinutes; }
 
         public override string ToString()
         {

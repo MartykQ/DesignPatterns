@@ -7,8 +7,8 @@ namespace EntityFrameworkTrial
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            EntityFrameworkTest.Create();
-
+            //EntityFrameworkTest.Create();
+            //EntityFrameworkTest.Delete("KBR");
             EntityFrameworkTest.Read();
         }
     }

@@ -27,5 +27,10 @@ namespace EntityFrameworkTrial
 
         }
 
+        public override string ToString()
+        {
+            return $"Car: {RegistrationNumber}, current distance: {CurrentDistance}";
+        }
+
     }
 }
