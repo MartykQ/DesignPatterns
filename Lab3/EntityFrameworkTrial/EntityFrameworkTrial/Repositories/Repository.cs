@@ -22,10 +22,12 @@ namespace EntityFrameworkTrial
             _context.Set<TEntity>().Remove(entity);
         }
 
-        public IList<TEntity> Find(Expression<Func<TEntity, bool>> expression)
+        public IList<TEntity> Find(string query)
         {
-            return _context.Set<TEntity>().Where(expression).ToList();
+            return _context.Set<TEntity>().FromSqlRaw(query).ToList();
+
         }
+
 
         public TEntity Get(Guid id)
         {

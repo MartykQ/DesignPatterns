@@ -10,7 +10,7 @@ namespace EntityFrameworkTrial
     {
         TEntity Get(Guid id);
         IList<TEntity> GetAll();
-        IList<TEntity> Find(Expression<Func<TEntity, bool>> expression);
+        IList<TEntity> Find(string query);
         void Insert(TEntity entity);
         void Delete(TEntity entity);
                     

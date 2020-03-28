@@ -30,7 +30,7 @@ namespace EntityFrameworkTrial
 
             using ( ICarUnitOfWork uow = new CarUnitOfWork(new CarRentalContext()))
             {
-                uow.CarRepository.Insert(car1);
+                //uow.CarRepository.Insert(car1);
                 uow.CarRepository.Insert(car2);
 
                 uow.Commit();
@@ -55,6 +55,7 @@ namespace EntityFrameworkTrial
                 }
             }
 
+            
             using (ICarUnitOfWork uow = new CarUnitOfWork(new CarRentalContext()))
             {
                 var lowBatteryCars = uow.CarRepository.GetLowBatteryCars();
@@ -70,7 +71,7 @@ namespace EntityFrameworkTrial
                 {
                     Console.WriteLine(c);
                 }
-            }
+            } 
         }
 
         public static void Update(string registrationNumber, float xPos, float yPos)

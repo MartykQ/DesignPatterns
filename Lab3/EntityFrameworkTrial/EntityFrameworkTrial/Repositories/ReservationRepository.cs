@@ -15,15 +15,11 @@ namespace EntityFrameworkTrial
 
             //Expression<Func<Reservation, bool>> exp = res => res.Status == 0;
 
-           
-            Expression<Func<Reservation, bool>> exp = res =>
-                (res.Status == 0 &&
-                 (res.ReservationDateTime - DateTime.Now).TotalMinutes > 15
-                 //res.ReservationDateTime.Subtract(DateTime.Now).TotalMinutes >= 15
-                 ) ;
+
+            string query = $"Select * from Reservations where Status=0";
 
 
-            return this.Find(exp);
+            return this.Find(query);
         }
 
 
