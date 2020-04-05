@@ -2,13 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace CarRental.Models.Read
 {
-    class RentalView
+    public class RentalView
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int RentalId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime StopDateTime { get; set; }

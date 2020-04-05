@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CarRental.Persistence
 {
-    class CarRentalContext : DbContext
+    public class CarRentalContext : DbContext
     {
         public DbSet<Car> Cars { get; set; }
         public DbSet<Rental> Reservations { get; set; }
@@ -20,5 +20,13 @@ namespace CarRental.Persistence
         }
 
 
+    }
+
+    public static class EntityExtensions
+    {
+        public static void Clear<T>(this DbSet<T> dbSet) where T : class
+        {
+            dbSet.RemoveRange(dbSet);
+        }
     }
 }

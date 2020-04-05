@@ -15,7 +15,7 @@ namespace CarRental.Persistence.Repositories
         {
             _context = context;
         }
-        public TEntity Get(Guid id)
+        public TEntity Get(int id)
         {
             return _context.Set<TEntity>().Find(id);
         }

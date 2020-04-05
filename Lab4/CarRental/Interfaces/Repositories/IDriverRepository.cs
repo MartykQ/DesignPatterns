@@ -5,7 +5,8 @@ using System.Text;
 
 namespace CarRental.Persistence.Repositories
 {
-    interface IRentalRepository : IRepository<Rental>
+    public interface IDriverRepository : IRepository<Driver>
     {
+        Driver GetDriverByLicense(string license);
     }
 }

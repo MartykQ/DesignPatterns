@@ -7,19 +7,17 @@ using System.Text;
 
 namespace CarRental.Persistence.UnitOfWorks
 {
-    class RentalViewUoW : IRentalViewUoW
+    public class DriverUoW : IDriverUoW
     {
 
         private readonly CarRentalContext _context;
-        public IRentalViewRepository RentalViewRepository { get; }
+        public IDriverRepository DriverRepository { get; }
 
-
-        public RentalViewUoW(CarRentalContext context)
+        public DriverUoW(CarRentalContext context)
         {
             this._context = context;
-            this.RentalViewRepository = new RentalViewRepository(this._context);
+            this.DriverRepository = new DriverRepository(this._context);
         }
-
 
         public void Commit()
         {

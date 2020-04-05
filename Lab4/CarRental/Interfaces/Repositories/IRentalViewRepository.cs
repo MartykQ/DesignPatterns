@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CarRental.Persistence.Repositories
 {
-    interface IRentalViewRepository : IRepository<RentalView>
+    public interface IRentalViewRepository : IRepository<RentalView>
     {
     }
 }

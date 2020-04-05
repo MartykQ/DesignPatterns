@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CarRental.Persistence.Repositories
 {
-    class RentalViewRepository : Repository<RentalView>, IRentalViewRepository
+    public class RentalViewRepository : Repository<RentalView>, IRentalViewRepository
     {
         public RentalViewRepository(CarRentalContext context) : base(context) { }
 

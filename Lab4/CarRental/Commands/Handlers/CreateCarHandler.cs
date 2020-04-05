@@ -7,18 +7,29 @@ using System.Text;
 
 namespace CarRental.Commands.Handlers
 {
-    class CreateCarCommandHandler : CommandHandlerBase, ICommandHandler<CreateCarCommand>
+    public class CreateCarCommandHandler : CommandHandlerBase, ICommandHandler<CreateCarCommand>
     {
         public CreateCarCommandHandler(ICarRentalUoW uoW) : base(uoW) { }
 
         public void Execute(CreateCarCommand command)
         {
-            Car newCar = new Car();
-            newCar.RegistrationNumber = command.RegistrationNumber;
 
+            Car doesExist = this._uoW.CarRepository.GetCarByRegistration(command.RegistrationNumber);
+            if (doesExist != null)
+                throw new Exception("This car already exists!");
+
+            Car newCar = new Car()
+            {
+                Id = command.Id,
+                RegistrationNumber = command.RegistrationNumber,
+                XPosition = command.XPosition,
+                YPosition = command.YPosition,
+                Status = command.Status,
+                TotalDistance = command.TotalDistance
+            };
+            
             this._uoW.CarRepository.Insert(newCar);
-
-
+            this._uoW.Commit();
         }
     }
 }

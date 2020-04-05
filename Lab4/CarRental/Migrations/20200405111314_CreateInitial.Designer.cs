@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Migrations
 {
     [DbContext(typeof(CarRentalContext))]
-    [Migration("20200404095259_CreateInitial")]
+    [Migration("20200405111314_CreateInitial")]
     partial class CreateInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,9 +24,7 @@ namespace CarRental.Migrations
             modelBuilder.Entity("CarRental.Models.Read.RentalView", b =>
                 {
                     b.Property<int>("RentalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("DriverId")
                         .HasColumnType("int");
@@ -65,9 +63,7 @@ namespace CarRental.Migrations
             modelBuilder.Entity("CarRental.Models.Write.Car", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<double>("CurrentDistance")
                         .HasColumnType("float");
@@ -95,18 +91,16 @@ namespace CarRental.Migrations
             modelBuilder.Entity("CarRental.Models.Write.Driver", b =>
                 {
                     b.Property<int>("DriverId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StopDateTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
+                    b.Property<string>("LicenseNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DriverId");
 
@@ -116,9 +110,7 @@ namespace CarRental.Migrations
             modelBuilder.Entity("CarRental.Models.Write.Rental", b =>
                 {
                     b.Property<int>("RentalID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");

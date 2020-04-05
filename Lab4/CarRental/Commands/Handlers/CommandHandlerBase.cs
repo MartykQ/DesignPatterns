@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CarRental.Commands.Handlers
 {
-    class CommandHandlerBase
+    public class CommandHandlerBase
     {
 
         protected ICarRentalUoW _uoW;

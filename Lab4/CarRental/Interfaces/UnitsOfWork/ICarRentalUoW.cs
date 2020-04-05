@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CarRental.Persistence.UnitOfWorks
 {
-    interface ICarRentalUoW : IDisposable
+    public interface ICarRentalUoW : IDisposable
     {
         IDriverRepository DriverRepository { get; }
         IRentalRepository RentalRepository { get;  }

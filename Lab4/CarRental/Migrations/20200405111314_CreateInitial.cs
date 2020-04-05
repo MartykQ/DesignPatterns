@@ -11,8 +11,7 @@ namespace CarRental.Migrations
                 name: "Cars",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(nullable: false),
                     RegistrationNumber = table.Column<string>(nullable: true),
                     XPosition = table.Column<double>(nullable: false),
                     YPosition = table.Column<double>(nullable: false),
@@ -29,11 +28,10 @@ namespace CarRental.Migrations
                 name: "Drivers",
                 columns: table => new
                 {
-                    DriverId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    StartDateTime = table.Column<DateTime>(nullable: false),
-                    StopDateTime = table.Column<DateTime>(nullable: false),
-                    Total = table.Column<double>(nullable: false)
+                    DriverId = table.Column<int>(nullable: false),
+                    LicenseNumber = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    LastName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -44,8 +42,7 @@ namespace CarRental.Migrations
                 name: "Reservations",
                 columns: table => new
                 {
-                    RentalID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RentalID = table.Column<int>(nullable: false),
                     StartDate = table.Column<DateTime>(nullable: false),
                     EndDate = table.Column<DateTime>(nullable: false),
                     Total = table.Column<double>(nullable: false)
@@ -59,8 +56,7 @@ namespace CarRental.Migrations
                 name: "RentalViews",
                 columns: table => new
                 {
-                    RentalId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RentalId = table.Column<int>(nullable: false),
                     StartDateTime = table.Column<DateTime>(nullable: false),
                     StopDateTime = table.Column<DateTime>(nullable: false),
                     Total = table.Column<double>(nullable: false),

@@ -6,8 +6,9 @@ using System.Text;
 
 namespace CarRental.Commands
 {
-    class CreateCarCommand : ICommand
+    public class CreateCarCommand : ICommand
     {
+        public int Id { get; set; }
         public string RegistrationNumber { get; set; }
         public CarStatus Status { get; set; }
         public double XPosition { get; set; }
