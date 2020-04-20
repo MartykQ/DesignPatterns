@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DDD.Base.DomainModelLayer.Events;
 using DDD.Base.DomainModelLayer.Models;
-
+using DDD.CarRentalLib.DomainModelLayer.Interfaces;
 
 namespace DDD.CarRentalLib.DomainModelLayer.Models
 {
@@ -26,6 +26,18 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
         public string FirstName { get; protected set; }
         public string LastName { get; protected set; }
         public double FreeMinutes { get; protected set; }
+
+        private IFreeMinutesPolicy _policy;
+
+        public void RegisterPolicy(IFreeMinutesPolicy policy)
+        {
+            this._policy = policy;
+        }
+
+        public void UpdateFreeMinutes(double timeEllapsed)
+        {
+            this.FreeMinutes += this._policy.CalculateFreeMinutes(timeEllapsed);
+        }
 
     }
 }

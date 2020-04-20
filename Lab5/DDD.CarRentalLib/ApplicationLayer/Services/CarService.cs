@@ -4,6 +4,7 @@ using DDD.CarRentalLib.ApplicationLayer.Interfaces;
 using DDD.CarRentalLib.ApplicationLayer.Mappers;
 using DDD.CarRentalLib.DomainModelLayer.Interfaces;
 using DDD.CarRentalLib.DomainModelLayer.Models;
+using DDD.CarRentalLib.InfrastructureLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,6 @@ namespace DDD.CarRentalLib.ApplicationLayer.Services
             Distance totalDistance = new Distance(carDTO.TotalDistance.Value, (DistanceUnit)carDTO.TotalDistance.Unit);
             Distance currentDistance = new Distance(carDTO.CurrentDistance.Value, (DistanceUnit)carDTO.CurrentDistance.Unit);
 
-
             car = new Car(carDTO.Id,
                 this._domainEventPublisher,
                 currentPosition,
@@ -46,11 +46,25 @@ namespace DDD.CarRentalLib.ApplicationLayer.Services
                 totalDistance,
                 currentDistance);
 
-
             this._uoW.CarRepository.Insert(car);
             this._uoW.Commit();
+        }
 
 
+        public List<CarDTO> GetAllCarsWithPosition()
+        {
+            IList<Car> cars = this._uoW.CarRepository.GetAll();
+
+            List<CarDTO> dtoResult = this._carMapper.Map(cars);
+
+            var positionService = new PositionService(this._domainEventPublisher, this._uoW);
+
+            foreach (CarDTO car in dtoResult)
+            {
+                car.CurrentPosition = this._carMapper.Map(positionService.GetCarPosition(car.Id));
+            }
+
+            return dtoResult;
         }
 
     }

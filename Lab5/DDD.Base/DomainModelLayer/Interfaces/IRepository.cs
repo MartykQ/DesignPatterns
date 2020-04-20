@@ -13,5 +13,6 @@ namespace DDD.Base.DomainModelLayer.Interfaces
         IList<TEntity> Find(Expression<Func<TEntity, bool>> expression);
         void Insert(TEntity entity);
         void Delete(TEntity entity);
+
     }
 }

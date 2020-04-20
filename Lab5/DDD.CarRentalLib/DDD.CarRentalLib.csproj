@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DomainModelLayer\Factories\" />
-    <Folder Include="DomainModelLayer\Services\" />
-    <Folder Include="DomainModelLayer\Policies\" />
-    <Folder Include="InfrastructureLayer\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DDD.Base\DDD.Base.csproj" />
   </ItemGroup>
 

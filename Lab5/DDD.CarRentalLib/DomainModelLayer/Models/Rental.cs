@@ -25,6 +25,22 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
             this.Total = total;
         }
 
+        public Rental(
+            Guid id,
+            IDomainEventPublisher domainEventPublisher,
+            DateTime started,
+            Guid carId,
+            Guid driverId
+            ) : base(id, domainEventPublisher)
+        {
+            this.Started = started;
+            this.CarId = carId;
+            this.DriverId = driverId;
+            Money startTotal = new Money(0);
+            this.Total = startTotal;
+
+        }
+
         public DateTime Started { get; protected set; }
         public DateTime Finished { get; protected set; }
         public Guid CarId { get; protected set; }
@@ -32,5 +48,15 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
         public Money Total { get; protected set; }
 
 
+        public double FinishRental(DateTime stopDate)
+        {
+            this.Finished = stopDate;
+            double totalTimeElappsed = (this.Finished - this.Started).TotalMinutes;
+
+            double totalValue = totalTimeElappsed * 5;
+            this.Total = new Money((decimal)totalValue, "zl");
+
+            return totalTimeElappsed;
+        }
     }
 }

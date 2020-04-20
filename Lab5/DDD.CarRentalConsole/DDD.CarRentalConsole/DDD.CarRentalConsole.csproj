@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DDD.Base\DDD.Base.csproj" />
+    <ProjectReference Include="..\..\DDD.CarRentalLib\DDD.CarRentalLib.csproj" />
+  </ItemGroup>
+
 </Project>

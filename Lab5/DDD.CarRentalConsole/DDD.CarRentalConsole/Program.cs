@@ -6,7 +6,17 @@ namespace DDD.CarRentalConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var simpleContainer = new SimpleTestContainer();
+            var scenarioHelper = new ScenarioHelper(
+                    simpleContainer.DriverService,
+                    simpleContainer.CarService,
+                    simpleContainer.RentalService,
+                    simpleContainer.FinishRentalService
+                );
+
+            var scenarioTest = new ScenarioTest(scenarioHelper);
+
+            scenarioTest.Test();
         }
     }
 }
