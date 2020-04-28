@@ -28,7 +28,7 @@ namespace DDD.CarRentalLib.ApplicationLayer.Services
             _policyFactory = policyFactory; 
         }
 
-        public void StartRental(Guid rentalId, Guid carId, Guid driverId, DateTime startTime)
+        public void StartRental(Guid rentalId, Guid carId, Guid driverId, DateTime startTime, Guid employeeId)
         {
             Car car = this._uoW.CarRepository.Get(carId) ??
                 throw new Exception("No car with this ID");
@@ -36,7 +36,10 @@ namespace DDD.CarRentalLib.ApplicationLayer.Services
             Driver driver = this._uoW.DriverRepository.Get(driverId) ??
                 throw new Exception("No driver with this ID!");
 
-            Rental rental = this._rentalFactory.Create(rentalId, car, driver, startTime);
+            Employee employee = this._uoW.EmployeeRepository.Get(employeeId) ??
+                throw new Exception("No employee with this Id");
+
+            Rental rental = this._rentalFactory.Create(rentalId, car, driver, startTime, employeeId);
 
             IFreeMinutesPolicy policy = this._policyFactory.Create(driver);
             driver.RegisterPolicy(policy);

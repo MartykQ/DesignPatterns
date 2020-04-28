@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDD.CarRentalLib.ApplicationLayer.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -24,13 +25,20 @@ namespace DDD.CarRentalConsole
             Guid car1ID = _scenarioHelper.CreateCar("KR1111");
             Guid car2ID = _scenarioHelper.CreateCar("KR22222");
 
+            //Tworzymy 2 pracownikow
+            Guid employee1 = _scenarioHelper.CreateEmployee("Dave", "Kowalski", "A01", JobPositionLevelDTO.Junior, "Manager", 13_000);
+            Guid employee2 = _scenarioHelper.CreateEmployee("Marcin", "Podst", "B002", JobPositionLevelDTO.Senior, "CEO", 90_000);
+
+
+
             _scenarioHelper.ShowCars();
             _scenarioHelper.ShowDrivers();
             _scenarioHelper.ShowRentals();
+            _scenarioHelper.ShowEmployees();
             _scenarioHelper.DrawSpace();
             //Rozpooczynamy 2 wypozyczenia
-            Guid rental1 = _scenarioHelper.StartRental(driver1ID, car1ID);
-            Guid rental2 = _scenarioHelper.StartRental(driver2ID, car2ID);
+            Guid rental1 = _scenarioHelper.StartRental(driver1ID, car1ID, employee1);
+            Guid rental2 = _scenarioHelper.StartRental(driver2ID, car2ID, employee2);
 
             _scenarioHelper.ShowCars();
             _scenarioHelper.ShowDrivers();

@@ -15,7 +15,8 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
             DateTime finished,
             Guid carId,
             Guid driverId,
-            Money total
+            Money total,
+            Guid employeeId
             ) : base(id, domainEventPublisher)
         {
             this.Started = started;
@@ -23,6 +24,7 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
             this.CarId = carId;
             this.DriverId = driverId;
             this.Total = total;
+            this.EmployeeId = employeeId;
         }
 
         public Rental(
@@ -30,7 +32,8 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
             IDomainEventPublisher domainEventPublisher,
             DateTime started,
             Guid carId,
-            Guid driverId
+            Guid driverId,
+            Guid employeeId
             ) : base(id, domainEventPublisher)
         {
             this.Started = started;
@@ -38,6 +41,7 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
             this.DriverId = driverId;
             Money startTotal = new Money(0);
             this.Total = startTotal;
+            this.EmployeeId = employeeId;
 
         }
 
@@ -45,6 +49,7 @@ namespace DDD.CarRentalLib.DomainModelLayer.Models
         public DateTime Finished { get; protected set; }
         public Guid CarId { get; protected set; }
         public Guid DriverId { get; protected set; }
+        public Guid EmployeeId { get; protected set; }
         public Money Total { get; protected set; }
 
 

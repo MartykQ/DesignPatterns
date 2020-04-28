@@ -8,7 +8,7 @@ namespace DDD.CarRentalLib.ApplicationLayer.Interfaces
 {
      public interface IRentalService : IApplicationService
     {
-        public void StartRental(Guid rentalId, Guid carId, Guid driverId, DateTime startTime);
+        public void StartRental(Guid rentalId, Guid carId, Guid driverId, DateTime startTime, Guid employeeId);
         public List<RentalDTO> GetAllRentals();
     }
 }

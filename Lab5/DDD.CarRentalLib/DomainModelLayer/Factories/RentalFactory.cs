@@ -15,10 +15,10 @@ namespace DDD.CarRentalLib.DomainModelLayer.Factories
             _domainEventPublisher = domainEventPublisher;
         }
 
-        public Rental Create(Guid rentalId, Car car, Driver driver, DateTime startDate)
+        public Rental Create(Guid rentalId, Car car, Driver driver, DateTime startDate, Guid employeeId)
         {
             CheckIfCarFree(car);
-            return new Rental(rentalId, this._domainEventPublisher, startDate, car.Id, driver.Id);
+            return new Rental(rentalId, this._domainEventPublisher, startDate, car.Id, driver.Id, employeeId);
         }
         private void CheckIfCarFree(Car car)
         {

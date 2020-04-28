@@ -25,7 +25,8 @@ namespace DDD.CarRentalLib.ApplicationLayer.Mappers
                 DriverId = r.DriverId,
                 Finished = r.Finished,
                 Started = r.Started,
-                Total = Map(r.Total)
+                Total = Map(r.Total),
+                EmployeeId = r.EmployeeId
             };
         }
 

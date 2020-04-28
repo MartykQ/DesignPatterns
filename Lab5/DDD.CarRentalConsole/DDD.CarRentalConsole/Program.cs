@@ -11,7 +11,8 @@ namespace DDD.CarRentalConsole
                     simpleContainer.DriverService,
                     simpleContainer.CarService,
                     simpleContainer.RentalService,
-                    simpleContainer.FinishRentalService
+                    simpleContainer.FinishRentalService,
+                    simpleContainer.EmployeeService
                 );
 
             var scenarioTest = new ScenarioTest(scenarioHelper);

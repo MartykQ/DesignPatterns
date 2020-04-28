@@ -13,5 +13,6 @@ namespace DDD.CarRentalLib.ApplicationLayer.DTOs
         public Guid DriverId { get; set; }
         public Guid CarId { get; set; }
         public MoneyDTO Total { get; set; }
+        public Guid EmployeeId { get; set; }
     }
 }
